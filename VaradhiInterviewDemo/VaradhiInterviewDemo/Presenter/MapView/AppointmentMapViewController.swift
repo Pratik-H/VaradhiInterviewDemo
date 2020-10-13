@@ -12,6 +12,9 @@ import MapKit
 class AppointmentMapViewController: UIViewController {
     
     // MARK: - Parameters
+    /// - NOTE: USING STATIC CORIDANTES
+    ///         API is not returning lat-long
+    
     var coordinates: CLLocationCoordinate2D? = CLLocationCoordinate2D(latitude: 25.551629, longitude: 85.120104)
     
     var monthlyAppointmentsData: MonthlyAppointmentsData?
@@ -39,7 +42,10 @@ class AppointmentMapViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        addressTextView.text = "#\(monthlyAppointmentsData?.addressLine1 ?? "") \(monthlyAppointmentsData?.addressLine2 ?? "")"
+        addressTextView.text = """
+            #\(monthlyAppointmentsData?.addressLine1 ?? "") \(monthlyAppointmentsData?.addressLine2 ?? "")
+                NOTE: - USING STATIC CORIDANTES since API is not returning lat-long
+            """
     }
     
 }

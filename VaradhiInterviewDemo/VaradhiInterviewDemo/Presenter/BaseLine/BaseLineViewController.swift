@@ -33,7 +33,6 @@ class BaseLineViewController: UIViewController {
         guard let model = convertModelToJSON(model: MonthlyAppointmentParameters()) else {return}
         let api: VS_API_Router = .get_monthly_appointments(model)
         VS_API_Client.getData(ofURL: api) { [weak self] result in
-            print(result)
             switch result {
                 case .success(let appointmentData):
                     do {
